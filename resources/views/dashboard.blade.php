@@ -11,7 +11,10 @@
         <div class="col-xs-12 col-sm-6">
             @include('shared.success_message')
             @include('shared.post_form')
-            @include('shared.post_card')
+
+            @foreach($posts as $post)
+                @include('shared.post_card')
+            @endforeach
         </div>
 
          <!-- sidebar right column -->

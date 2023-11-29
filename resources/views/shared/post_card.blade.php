@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card mb-3">
     <div class="px-3 pt-4 pb-2">
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
@@ -14,7 +14,7 @@
     </div>
     <div class="card-body">
         <p class="fs-6 fw-light text-muted">
-            Here goes the content
+            {{$post->content}}
         </p>
         <div class="d-flex justify-content-between">
             <div>
