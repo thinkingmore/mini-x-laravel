@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,31 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/about', function () {
+Route::view('/', 'welcome');
 
-    $users = [
-        [
-            "name" => "John",
-            "age" => 36,
-        ],
-        [
-            "name" => "Tom",
-            "age" => 26,
-        ],
-        [
-            "name" => "Harry",
-            "age" => 35,
-        ],
-        [
-            "name" => "Sam",
-            "age" => 25,
-        ],
+Route::get('/dashboard',[DashboardController::class, 'index'] );
 
-    ];
-
-    return view('about',['users' => $users]);
-});
