@@ -2,6 +2,17 @@
     <div class="px-3 pt-4 pb-2">
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
+            </div>
+            <div>
+                <form action="{{ route('post.destroy',$post->id) }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
                 <img style="width:50px" class="rounded-circle me-2 avatar-sm"
                     src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="avatar">
                 <div>

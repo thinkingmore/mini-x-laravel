@@ -21,4 +21,11 @@ class PostController extends Controller
 
         return redirect()->route('dashboard')->with('success', 'Post saved successfully');
     }
+
+    public function destroy($id){
+        
+        Post::where('id', $id)->firstOrFail()->delete();
+
+        return redirect()->route('dashboard')->with('success', 'Post deleted successfully');
+    }
 }
