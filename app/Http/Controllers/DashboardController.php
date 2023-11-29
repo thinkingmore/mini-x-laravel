@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {     
-        return view('dashboard', ['posts' => Post::orderBy('created_at', 'DESC')->get()]);
+        return view('dashboard', ['posts' => Post::orderBy('created_at', 'DESC')->paginate(5)]);
     }
 
 }

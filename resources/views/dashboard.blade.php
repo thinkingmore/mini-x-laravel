@@ -15,6 +15,7 @@
             @foreach($posts as $post)
                 @include('shared.post_card')
             @endforeach
+            {{ $posts->links()}}
         </div>
 
          <!-- sidebar right column -->
