@@ -7,6 +7,8 @@
                 <form action="{{ route('post.destroy',$post->id) }}" method="POST">
                     @csrf
                     @method('delete')
+                    <a class="mx-2" href="{{ route('post.show', $post->id) }}">View</a>
+                    <a href="{{ route('post.edit', $post->id) }}">Edit</a>
                     <button class="btn btn-danger btn-sm">Delete</button>
                 </form>
             </div>
@@ -24,6 +26,18 @@
         </div>
     </div>
     <div class="card-body">
+        @if($editing ?? false)
+            <form action="{{ route('post.update', $post->id) }}" method="post">
+                @csrf
+                <div class="form-floating">
+                    <textarea class="form-control" name="content" id="floatingTextarea2" style="height: 100px">{{ $post-> content}}</textarea>
+                    @error('content')
+                        <span class="fs-6 text-danger mt-2">{{ $message }}</span>
+                    @enderror
+                </div>
+                <button type="submit" class="btn btn-dark mt-3">Submit</button>
+            </form>
+        @else
         <p class="fs-6 fw-light text-muted">
             {{$post->content}}
         </p>
@@ -71,5 +85,6 @@
                 <p>This post is something nice to read.Thank you to the author of this post</p>
             </div>
         </div>
+        @endif
     </div>
 </div>
